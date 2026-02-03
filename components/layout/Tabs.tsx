@@ -4,7 +4,7 @@ import { useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
-import { SendTab } from "@/components/tabs/SendTab";
+import { SendTab, SendPanel } from "@/components/tabs/SendTab";
 import { SwapTab, SwapTabContent } from "@/components/tabs/SwapTab";
 import { BridgeTab } from "@/components/tabs/BridgeTab";
 import { StakeTab } from "@/components/tabs/StakeTab";
@@ -33,6 +33,8 @@ export function Tabs() {
     const activeTabData = tabs.find((t) => t.id === activeTab);
 
     const isSwapTab = activeTab === "swap";
+    const isSendTab = activeTab === "send";
+    const isCompactTab = isSwapTab || isSendTab;
 
     return (
         <div className="flex gap-8 min-h-[calc(100vh-160px)]">
@@ -78,7 +80,7 @@ export function Tabs() {
             </div>
 
             {/* Right Side - Tab Navigation + Action Panel */}
-            <div className="w-[750px] flex flex-col gap-4">
+            <div className="w-[480px] flex flex-col gap-4">
                 {/* Tab Navigation */}
                 <div className="flex justify-center">
                     <div className="inline-flex items-center gap-1 border border-zinc-700 rounded-lg p-1">
@@ -106,87 +108,20 @@ export function Tabs() {
                     </div>
                 </div>
 
-                {/* Action Panel - SwapTab without border, others with border */}
-                {isSwapTab ? (
-                    <div className="flex-1 pt-2 flex justify-center">
-                        <SwapTab />
-                    </div>
-                ) : (
-                    <div className="flex-1 border border-zinc-700 rounded-xl bg-zinc-900/30 p-6 overflow-y-auto">
-                        {activeTab === "send" && <SendPanel />}
-                        {activeTab === "bridge" && <BridgePanel />}
-                        {activeTab === "stake" && <StakePanel />}
-                        {activeTab === "history" && <HistoryPanel />}
-                    </div>
-                )}
+                {/* Action Panel - No border for all tabs */}
+                <div className="flex-1 pt-2 flex justify-center">
+                    {activeTab === "send" && <SendPanel />}
+                    {activeTab === "swap" && <SwapTab />}
+                    {activeTab === "bridge" && <BridgePanel />}
+                    {activeTab === "stake" && <StakePanel />}
+                    {activeTab === "history" && <HistoryPanel />}
+                </div>
             </div>
         </div>
     );
 }
 
-// Send Panel - Token to Send UI
-function SendPanel() {
-    return (
-        <div className="space-y-6">
-            <div>
-                <p className="text-sm text-zinc-400 mb-2">Token to Send</p>
-                <div className="flex items-center justify-between border border-zinc-700 rounded-xl p-4 bg-zinc-900/50">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">SOL</span>
-                        </div>
-                        <div>
-                            <p className="font-semibold">SOL</p>
-                            <p className="text-sm text-zinc-400">Balance: ****</p>
-                        </div>
-                    </div>
-                    <span className="text-zinc-400">▼</span>
-                </div>
-            </div>
-
-            <div>
-                <div className="flex justify-between mb-2">
-                    <p className="text-sm text-zinc-400">Amount</p>
-                    <p className="text-sm text-cyan-400 cursor-pointer">MAX</p>
-                </div>
-                <div className="flex items-center border border-zinc-700 rounded-xl p-4 bg-zinc-900/50">
-                    <input
-                        type="text"
-                        placeholder="0.00"
-                        className="bg-transparent flex-1 text-2xl outline-none text-zinc-300"
-                    />
-                    <span className="text-white font-semibold">SOL</span>
-                </div>
-            </div>
-
-            <div>
-                <p className="text-sm text-zinc-400 mb-2">Recipient Address</p>
-                <div className="flex items-center gap-3 border border-zinc-700 rounded-xl p-4 bg-zinc-900/50">
-                    <span className="text-zinc-500">👤</span>
-                    <input
-                        type="text"
-                        placeholder="Enter Solana wallet address..."
-                        className="bg-transparent flex-1 outline-none text-zinc-300"
-                    />
-                </div>
-            </div>
-
-            <div className="border border-cyan-700/50 rounded-xl p-4 bg-cyan-950/20">
-                <div className="flex items-start gap-3">
-                    <span className="text-cyan-400">🔒</span>
-                    <div>
-                        <p className="text-cyan-400 font-semibold">Stealth Transfer Enabled</p>
-                        <p className="text-sm text-zinc-400">Your transaction will be sent to a stealth address. The recipient can claim it using their viewing keys.</p>
-                    </div>
-                </div>
-            </div>
-
-            <button className="w-full py-4 text-center text-zinc-400 font-semibold border border-zinc-700 rounded-xl hover:bg-zinc-800 transition-colors">
-                Connect Wallet
-            </button>
-        </div>
-    );
-}
+// SendPanel is now imported from SendTab
 
 // Swap Panel
 function SwapPanel() {
@@ -241,7 +176,7 @@ function SwapPanel() {
 // Bridge Panel
 function BridgePanel() {
     return (
-        <div className="space-y-4">
+        <div className="w-full max-w-md mx-auto space-y-4">
             <div className="flex gap-2 mb-4">
                 <button className="px-4 py-2 bg-lime-400 text-black rounded-lg text-sm font-semibold">Transfer</button>
                 <button className="px-4 py-2 text-zinc-500 text-sm hover:text-white transition-colors">Liquidity</button>
@@ -307,7 +242,7 @@ function BridgePanel() {
 // Stake Panel
 function StakePanel() {
     return (
-        <div className="space-y-4">
+        <div className="w-full max-w-md mx-auto space-y-4">
             <div className="text-center mb-6">
                 <p className="text-zinc-400">Sa=take IN for extra rewards.</p>
                 <p className="text-2xl font-bold">APR <span className="text-purple-400">36.3%</span></p>
@@ -377,7 +312,7 @@ function HistoryPanel() {
     ];
 
     return (
-        <div className="space-y-2">
+        <div className="w-full max-w-md mx-auto space-y-2">
             <div className="flex gap-2 mb-4">
                 <button className="px-4 py-2 bg-zinc-800 rounded-full text-white text-sm">All</button>
                 <button className="px-4 py-2 border border-zinc-700 rounded-full text-zinc-500 text-sm hover:text-white transition-colors">Send</button>
