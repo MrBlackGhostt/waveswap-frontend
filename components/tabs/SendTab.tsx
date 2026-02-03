@@ -92,7 +92,7 @@ export function SendPanel() {
     };
 
     return (
-        <div className="w-full max-w-md mx-auto h-full flex flex-col">
+        <div className="w-full max-w-md mx-auto h-full flex flex-col overflow-x-hidden">
             <AnimatePresence mode="wait">
                 {/* Step 1: Select Token */}
                 {step === "token" && (
@@ -312,7 +312,7 @@ export function SendPanel() {
 
                         {/* Amount Input - Centered */}
                         <div className="flex-1 flex flex-col items-center justify-center">
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-1">
                                 <input
                                     type="text"
                                     value={amount}
