@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 import { SendTab } from "@/components/tabs/SendTab";
-import { SwapTab } from "@/components/tabs/SwapTab";
+import { SwapTab, SwapTabContent } from "@/components/tabs/SwapTab";
 import { BridgeTab } from "@/components/tabs/BridgeTab";
 import { StakeTab } from "@/components/tabs/StakeTab";
 import { HistoryTab } from "@/components/tabs/HistoryTab";
@@ -21,7 +21,7 @@ interface Tab {
 
 const tabs: Tab[] = [
     { id: "send", label: "send", title: "Send", component: <SendTab /> },
-    { id: "swap", label: "swap", title: "Swap", component: <SwapTab /> },
+    { id: "swap", label: "swap", title: "Swap", component: <SwapTabContent /> },
     { id: "bridge", label: "bridge", title: "Bridge", component: <BridgeTab /> },
     { id: "stake", label: "stake", title: "Stake", component: <StakeTab /> },
     { id: "history", label: "history", title: "History", component: <HistoryTab /> },
@@ -31,6 +31,8 @@ export function Tabs() {
     const [activeTab, setActiveTab] = useState<TabId>("send");
 
     const activeTabData = tabs.find((t) => t.id === activeTab);
+
+    const isSwapTab = activeTab === "swap";
 
     return (
         <div className="flex gap-8 min-h-[calc(100vh-160px)]">
@@ -104,15 +106,19 @@ export function Tabs() {
                     </div>
                 </div>
 
-                {/* Action Panel */}
-                <div className="flex-1 border border-zinc-700 rounded-xl bg-zinc-900/30 p-6 overflow-y-auto">
-                    {/* Dynamic content based on active tab */}
-                    {activeTab === "send" && <SendPanel />}
-                    {activeTab === "swap" && <SwapPanel />}
-                    {activeTab === "bridge" && <BridgePanel />}
-                    {activeTab === "stake" && <StakePanel />}
-                    {activeTab === "history" && <HistoryPanel />}
-                </div>
+                {/* Action Panel - SwapTab without border, others with border */}
+                {isSwapTab ? (
+                    <div className="flex-1 pt-2 flex justify-center">
+                        <SwapTab />
+                    </div>
+                ) : (
+                    <div className="flex-1 border border-zinc-700 rounded-xl bg-zinc-900/30 p-6 overflow-y-auto">
+                        {activeTab === "send" && <SendPanel />}
+                        {activeTab === "bridge" && <BridgePanel />}
+                        {activeTab === "stake" && <StakePanel />}
+                        {activeTab === "history" && <HistoryPanel />}
+                    </div>
+                )}
             </div>
         </div>
     );
