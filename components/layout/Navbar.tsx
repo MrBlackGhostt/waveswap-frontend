@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FiSearch, FiArrowRight } from "react-icons/fi";
 import { motion } from "motion/react";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 export function Navbar() {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -19,7 +20,7 @@ export function Navbar() {
                 <div
                     className="w-12 h-12 rounded-2xl flex items-center justify-center relative neo-border"
                     style={{
-                        background: "linear-gradient(135deg, #1A1A1A 0%, #333333 100%)",
+                        background: "linear-gradient(135deg, var(--text-primary) 0%, var(--gray-600) 100%)",
                     }}
                 >
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-white">
@@ -39,8 +40,8 @@ export function Navbar() {
                     </svg>
                 </div>
                 <span
-                    className="font-outfit text-2xl font-black tracking-tight text-[#1A1A1A]"
-                    style={{ textShadow: "2px 2px 0px rgba(0, 0, 0, 0.1)" }}
+                    className="font-outfit text-2xl font-black tracking-tight"
+                    style={{ color: "var(--text-primary)", textShadow: "2px 2px 0px rgba(0, 0, 0, 0.1)" }}
                 >
                     WAVETEK
                 </span>
@@ -49,13 +50,13 @@ export function Navbar() {
             {/* Search Box with Expand Animation */}
             <motion.div
                 className="hidden md:flex items-center rounded-full overflow-visible neo-border cursor-text"
-                style={{ background: "#FFFFFF" }}
+                style={{ background: "var(--bg-white)" }}
                 initial={{ width: 280 }}
                 animate={{
                     width: isSearchFocused ? 400 : 280,
                     boxShadow: isSearchFocused
-                        ? "6px 6px 0px 0px #1A1A1A"
-                        : "4px 4px 0px 0px #1A1A1A"
+                        ? "6px 6px 0px 0px var(--color-border-primary)"
+                        : "4px 4px 0px 0px var(--color-border-primary)"
                 }}
                 transition={{
                     type: "spring",
@@ -79,14 +80,18 @@ export function Navbar() {
                     <input
                         type="text"
                         placeholder="Search the Orb..."
-                        className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold text-[#1A1A1A] placeholder:text-gray-500 min-w-0"
+                        className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold min-w-0"
+                        style={{ color: "var(--text-primary)" }}
                         onFocus={() => setIsSearchFocused(true)}
                         onBlur={() => setIsSearchFocused(false)}
                     />
                 </div>
             </motion.div>
 
-            {/* Connect Wallet Button */}
+            {/* Right Section: Theme Toggle + Connect Wallet */}
+            <div className="flex items-center gap-3">
+                {/* Theme Toggle */}
+                <ThemeToggle />
             <button
                 className="flex items-center gap-2.5 px-7 py-3.5 rounded-full font-outfit font-bold text-base text-white relative overflow-hidden neo-border neo-hover btn-coral"
             >
@@ -100,6 +105,7 @@ export function Navbar() {
                     <FiArrowRight className="w-4 h-4" />
                 </span>
             </button>
+            </div>
         </motion.nav>
     );
 }

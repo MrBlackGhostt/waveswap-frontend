@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Rubik } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -25,11 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${outfit.variable} ${rubik.variable} antialiased bg-black text-white`}
+        className={`${outfit.variable} ${rubik.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

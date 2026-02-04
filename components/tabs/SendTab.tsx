@@ -36,7 +36,7 @@ export function SendPanel() {
     return (
         <motion.div
             className="rounded-3xl w-full overflow-hidden neo-border-lg"
-            style={{ background: "rgba(255, 255, 255, 0.95)" }}
+            style={{ background: "var(--bg-white-translucent)" }}
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.1 }}
@@ -48,7 +48,7 @@ export function SendPanel() {
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF8A6A] to-[#FF6B4A] flex items-center justify-center">
                             <FiStar className="w-3.5 h-3.5 text-white" />
                         </div>
-                        <span className="font-outfit font-bold text-sm text-black uppercase tracking-wide">
+                        <span className="font-outfit font-bold text-sm uppercase tracking-wide" style={{ color: "var(--text-primary)" }}>
                             Transfer Funds
                         </span>
                     </div>
@@ -90,7 +90,7 @@ export function SendPanel() {
                             transition={{ duration: 0.3 }}
                             className="space-y-4"
                         >
-                            <p className="text-sm text-gray-600 font-rubik">Select a token to send</p>
+                            <p className="text-sm font-rubik" style={{ color: "var(--text-secondary)" }}>Select a token to send</p>
 
                             {/* Token List */}
                             <div className="space-y-2">
@@ -100,8 +100,9 @@ export function SendPanel() {
                                         onClick={() => selectToken(token)}
                                         className={`w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all ${selectedToken?.symbol === token.symbol
                                                 ? "border-[#FF6B4A] bg-[rgba(255,107,74,0.05)]"
-                                                : "border-gray-100 hover:border-gray-300"
+                                                : "hover:border-gray-300"
                                             }`}
+                                        style={{ borderColor: selectedToken?.symbol === token.symbol ? "var(--coral)" : "var(--gray-200)" }}
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3, delay: index * 0.05 }}
@@ -114,11 +115,11 @@ export function SendPanel() {
                                                 {token.symbol.charAt(0)}
                                             </div>
                                             <div className="text-left">
-                                                <p className="font-outfit font-semibold text-black">{token.name}</p>
-                                                <p className="text-xs text-gray-500">{token.symbol}</p>
+                                                <p className="font-outfit font-semibold" style={{ color: "var(--text-primary)" }}>{token.name}</p>
+                                                <p className="text-xs" style={{ color: "var(--text-muted)" }}>{token.symbol}</p>
                                             </div>
                                         </div>
-                                        <p className="font-rubik font-medium text-gray-600">{token.balance}</p>
+                                        <p className="font-rubik font-medium" style={{ color: "var(--text-secondary)" }}>{token.balance}</p>
                                     </motion.button>
                                 ))}
                             </div>
@@ -154,10 +155,11 @@ export function SendPanel() {
                             className="space-y-4"
                         >
                             <div className="flex items-center justify-between">
-                                <p className="text-sm text-gray-600 font-rubik">Enter recipient address</p>
+                                <p className="text-sm font-rubik" style={{ color: "var(--text-secondary)" }}>Enter recipient address</p>
                                 <button
                                     onClick={() => setStep(1)}
-                                    className="text-xs text-gray-500 hover:text-black transition-colors"
+                                    className="text-xs transition-colors"
+                                    style={{ color: "var(--text-muted)" }}
                                 >
                                     ← Back
                                 </button>
@@ -170,7 +172,8 @@ export function SendPanel() {
                                     placeholder="Wallet address or ENS name"
                                     value={recipient}
                                     onChange={(e) => setRecipient(e.target.value)}
-                                    className="w-full bg-transparent outline-none font-outfit font-semibold text-black placeholder:text-gray-400 mt-1"
+                                    className="w-full bg-transparent outline-none font-outfit font-semibold placeholder:text-gray-400 mt-1"
+                                    style={{ color: "var(--text-primary)" }}
                                 />
                             </div>
 
@@ -212,7 +215,8 @@ export function SendPanel() {
                                     placeholder="0.00"
                                     value={amount}
                                     onChange={(e) => setAmount(e.target.value)}
-                                    className="w-full bg-transparent outline-none font-outfit font-bold text-4xl text-black text-center placeholder:text-gray-300"
+                                    className="w-full bg-transparent outline-none font-outfit font-bold text-4xl text-center placeholder:text-gray-300"
+                                    style={{ color: "var(--text-primary)" }}
                                 />
                                 <p className="text-sm text-gray-500 font-rubik mt-2">
                                     {selectedToken?.symbol} • Balance: {selectedToken?.balance}
@@ -257,11 +261,11 @@ export function SendPanel() {
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-gray-500 font-rubik text-sm">To</span>
-                                    <span className="font-rubik text-black text-sm">{recipient.slice(0, 8)}...{recipient.slice(-6)}</span>
+                                    <span className="font-rubik text-sm" style={{ color: "var(--text-primary)" }}>{recipient.slice(0, 8)}...{recipient.slice(-6)}</span>
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-gray-500 font-rubik text-sm">Network Fee</span>
-                                    <span className="font-rubik text-black text-sm">~$0.12</span>
+                                    <span className="font-rubik text-sm" style={{ color: "var(--text-primary)" }}>~$0.12</span>
                                 </div>
                             </div>
 

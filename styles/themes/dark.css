@@ -1,0 +1,134 @@
+/**
+ * Dark Theme - Navy Blue
+ * Override design tokens for dark mode
+ */
+
+[data-theme="dark"] {
+  /* ============================================
+     BRAND COLORS - Navy Blue Theme
+     ============================================ */
+  
+  /* Navy Blue - Primary Brand Color for Dark Mode */
+  --color-brand-coral: #60A5FA;           /* Blue-400 - Navy Blue */
+  --color-brand-coral-light: #93C5FD;     /* Blue-300 - Light Navy */
+  --color-brand-coral-dark: #3B82F6;      /* Blue-500 - Deep Navy */
+  
+  /* Deep Navy - Secondary */
+  --color-brand-lavender: #2563EB;        /* Blue-600 - Deeper Navy */
+  --color-brand-lavender-dark: #1D4ED8;   /* Blue-700 - Dark Navy */
+  
+  /* Navy accent */
+  --color-brand-beige: #60A5FA;           /* Blue-400 - Navy accent */
+
+  /* ============================================
+     BACKGROUND COLORS
+     ============================================ */
+  
+  /* Dark Navy Backgrounds */
+  --color-bg-cream: #0F172A;              /* Slate-900 */
+  --color-bg-cream-mid: #1E293B;          /* Slate-800 */
+  --color-bg-cream-dark: #334155;         /* Slate-700 */
+  
+  /* Dark Neutral Backgrounds */
+  --color-bg-white: #1E293B;              /* Slate-800 */
+  --color-bg-white-translucent: rgba(30, 41, 59, 0.95);
+  --color-bg-black: #020617;              /* Slate-950 */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* ============================================
+     TEXT COLORS
+     ============================================ */
+  
+  --color-text-primary: #F1F5F9;          /* Slate-100 */
+  --color-text-secondary: rgba(241, 245, 249, 0.8);
+  --color-text-muted: rgba(241, 245, 249, 0.6);
+  --color-text-white: #FFFFFF;
+
+  /* ============================================
+     UI STATE COLORS
+     ============================================ */
+  
+  --color-ui-success: #34D399;            /* Emerald-400 */
+  --color-ui-error: #F87171;              /* Red-400 */
+  --color-ui-warning: #FBBF24;            /* Amber-400 */
+  --color-ui-info: #60A5FA;               /* Blue-400 */
+  
+  /* Navy Blue Accents for Dark Mode */
+  --color-ui-lime: #60A5FA;               /* Blue-400 - Navy Blue */
+  --color-ui-lime-light: #93C5FD;         /* Blue-300 - Light Navy */
+  --color-ui-lime-dark: #3B82F6;          /* Blue-500 - Deep Navy */
+
+  /* ============================================
+     GRAY SCALE - Adjusted for Dark Mode
+     ============================================ */
+  
+  --color-gray-50: #1E293B;               /* Slate-800 */
+  --color-gray-100: #334155;              /* Slate-700 */
+  --color-gray-200: #475569;              /* Slate-600 */
+  --color-gray-300: #64748B;              /* Slate-500 */
+  --color-gray-400: #94A3B8;              /* Slate-400 */
+  --color-gray-500: #CBD5E1;              /* Slate-300 */
+  --color-gray-600: #E2E8F0;              /* Slate-200 */
+  --color-gray-700: #F1F5F9;              /* Slate-100 */
+  --color-gray-800: #F8FAFC;              /* Slate-50 */
+  --color-gray-900: #FFFFFF;
+
+  /* ============================================
+     ZINC SCALE - Inverted for Dark
+     ============================================ */
+  
+  --color-zinc-300: #71717a;
+  --color-zinc-400: #a1a1aa;
+  --color-zinc-500: #d4d4d8;
+  --color-zinc-600: #e4e4e7;
+  --color-zinc-700: #f4f4f5;
+  --color-zinc-800: #fafafa;
+  --color-zinc-900: #ffffff;
+  --color-zinc-950: #ffffff;
+
+  /* ============================================
+     BORDER COLORS
+     ============================================ */
+  
+  --color-border-primary: #60A5FA;        /* Navy Blue for neo-brutalist borders */
+  --color-border-secondary: var(--color-gray-200);
+  --color-border-accent: var(--color-brand-coral);
+  --color-border-muted: rgba(255, 255, 255, 0.1);
+
+  /* ============================================
+     SHADOWS - Adjusted for Dark Mode
+     ============================================ */
+  
+  /* Neo-Brutalist Offset Shadows with Purple */
+  --shadow-neo-sm: 2px 2px 0px 0px var(--color-border-primary);
+  --shadow-neo-md: 4px 4px 0px 0px var(--color-border-primary);
+  --shadow-neo-lg: 6px 6px 0px 0px var(--color-border-primary);
+  
+  /* Navy Blue Glow Shadows */
+  --shadow-coral-soft: 0 8px 24px rgba(96, 165, 250, 0.35);
+  --shadow-coral-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-coral-combined: 0 8px 24px rgba(96, 165, 250, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  /* Standard Shadows - Darker */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+
+  /* ============================================
+     GRADIENTS - Navy Purple Theme
+     ============================================ */
+  
+  /* Brand Gradients */
+  --gradient-coral: linear-gradient(135deg, var(--color-brand-coral-light) 0%, var(--color-brand-coral) 100%);
+  --gradient-coral-full: linear-gradient(135deg, var(--color-brand-coral-light) 0%, var(--color-brand-coral) 50%, var(--color-brand-coral-dark) 100%);
+  --gradient-lavender: linear-gradient(135deg, var(--color-brand-lavender) 0%, var(--color-brand-lavender-dark) 100%);
+  
+  /* Background Gradients */
+  --gradient-cream: linear-gradient(to bottom right, var(--color-bg-cream) 0%, var(--color-bg-cream-mid) 50%, var(--color-bg-cream-dark) 100%);
+  
+  /* Radial Gradients (for blur effects) */
+  --gradient-radial-coral: radial-gradient(circle, var(--color-brand-coral) 0%, transparent 70%);
+  --gradient-radial-lavender: radial-gradient(circle, var(--color-brand-lavender) 0%, transparent 70%);
+  --gradient-radial-beige: radial-gradient(circle, var(--color-brand-beige) 0%, transparent 70%);
+}
