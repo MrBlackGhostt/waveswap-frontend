@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FiSearch, FiArrowRight } from "react-icons/fi";
 import { motion } from "motion/react";
 
+import { ThemeToggle } from "@/components/button/toggleTheme";
+
 export function Navbar() {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
 
@@ -77,20 +79,25 @@ export function Navbar() {
                 </div>
             </motion.div>
 
-            {/* Connect Wallet Button */}
-            <button
-                className="flex items-center gap-2.5 px-7 py-3.5 rounded-full font-outfit font-bold text-base text-white relative overflow-hidden neo-border neo-hover btn-coral"
-            >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent shimmer" />
-                <svg className="text-current" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 12V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-3" />
-                    <circle cx="18" cy="12" r="2" />
-                </svg>
-                <span className="hidden sm:inline relative z-10">Connect Wallet</span>
-                <span className="hidden sm:inline relative z-10">
-                    <FiArrowRight className="w-4 h-4" />
-                </span>
-            </button>
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-4">
+                <ThemeToggle />
+
+                {/* Connect Wallet Button */}
+                <button
+                    className="flex items-center gap-2.5 px-7 py-3.5 rounded-full font-outfit font-bold text-base text-white relative overflow-hidden neo-border neo-hover btn-coral"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent shimmer" />
+                    <svg className="text-current" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 12V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-3" />
+                        <circle cx="18" cy="12" r="2" />
+                    </svg>
+                    <span className="hidden sm:inline relative z-10">Connect Wallet</span>
+                    <span className="hidden sm:inline relative z-10">
+                        <FiArrowRight className="w-4 h-4" />
+                    </span>
+                </button>
+            </div>
         </motion.nav >
     );
 }
