@@ -17,10 +17,7 @@ export function Navbar() {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center gap-3">
                 <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center relative neo-border"
-                    style={{
-                        background: "linear-gradient(135deg, #1A1A1A 0%, #333333 100%)",
-                    }}
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center relative neo-border gradient-logo"
                 >
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" className="text-white">
                         <path
@@ -39,7 +36,7 @@ export function Navbar() {
                     </svg>
                 </div>
                 <span
-                    className="font-outfit text-2xl font-black tracking-tight text-[#1A1A1A]"
+                    className="font-outfit text-2xl font-black tracking-tight text-foreground"
                     style={{ textShadow: "2px 2px 0px rgba(0, 0, 0, 0.1)" }}
                 >
                     WAVETEK
@@ -48,15 +45,9 @@ export function Navbar() {
 
             {/* Search Box with Expand Animation */}
             <motion.div
-                className="hidden md:flex items-center rounded-full overflow-visible neo-border cursor-text"
-                style={{ background: "#FFFFFF" }}
+                className={`hidden md:flex items-center rounded-full overflow-visible neo-border cursor-text bg-cream-light ${isSearchFocused ? 'neo-shadow-lg' : 'neo-shadow'}`}
                 initial={{ width: 280 }}
-                animate={{
-                    width: isSearchFocused ? 400 : 280,
-                    boxShadow: isSearchFocused
-                        ? "6px 6px 0px 0px #1A1A1A"
-                        : "4px 4px 0px 0px #1A1A1A"
-                }}
+                animate={{ width: isSearchFocused ? 400 : 280 }}
                 transition={{
                     type: "spring",
                     stiffness: 300,
@@ -79,7 +70,7 @@ export function Navbar() {
                     <input
                         type="text"
                         placeholder="Search the Orb..."
-                        className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold text-[#1A1A1A] placeholder:text-gray-500 min-w-0"
+                        className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold text-foreground placeholder:text-muted-foreground min-w-0"
                         onFocus={() => setIsSearchFocused(true)}
                         onBlur={() => setIsSearchFocused(false)}
                     />
@@ -100,6 +91,6 @@ export function Navbar() {
                     <FiArrowRight className="w-4 h-4" />
                 </span>
             </button>
-        </motion.nav>
+        </motion.nav >
     );
 }

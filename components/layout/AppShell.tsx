@@ -13,7 +13,7 @@ export function AppShell({ children }: AppShellProps) {
             {/* Background */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
                 {/* Gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#FAF9F7] via-[#F5F3EF] to-[#EDE9E3]" />
+                <div className="absolute inset-0 bg-cream-gradient" />
 
                 {/* Noise overlay */}
                 <div
@@ -25,12 +25,10 @@ export function AppShell({ children }: AppShellProps) {
 
                 {/* Decorative glow orbs */}
                 <div
-                    className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.08]"
-                    style={{ background: "radial-gradient(circle, #FF6B4A 0%, transparent 70%)" }}
+                    className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full opacity-[0.08] glow-primary"
                 />
                 <div
-                    className="absolute -bottom-48 -left-48 w-[700px] h-[700px] rounded-full opacity-[0.06]"
-                    style={{ background: "radial-gradient(circle, #8B74D0 0%, transparent 70%)" }}
+                    className="absolute -bottom-48 -left-48 w-[700px] h-[700px] rounded-full opacity-[0.06] glow-accent"
                 />
                 <div
                     className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full opacity-[0.04]"
