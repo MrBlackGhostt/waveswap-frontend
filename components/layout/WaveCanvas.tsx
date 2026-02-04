@@ -15,9 +15,9 @@ export function WaveCanvas() {
 
         let animationId: number;
 
-        // High density grid for smaller boxes
-        const cols = 160;
-        const rows = 80;
+        // Fewer columns/rows for "zoomed in" bigger look
+        const cols = 70;
+        const rows = 40;
 
         const resize = () => {
             canvas.width = window.innerWidth;
@@ -85,7 +85,7 @@ export function WaveCanvas() {
             for (let r = 0; r < rows - 1; r++) {
                 // Fade out at the back (top of canvas)
                 const depthAlpha = Math.pow(r / rows, 0.5); // Non-linear alpha for smoother fade
-                const lineWidth = 1.5 + (r / rows) * 2.5; // Thicker lines closer to camera
+                const lineWidth = 0.5 + (r / rows) * 1.0; // Thinner lines
 
                 for (let c = 0; c < cols - 1; c++) {
                     const p1 = grid[r][c];

@@ -44,7 +44,7 @@ export function AppShell({ children }: AppShellProps) {
             </div>
 
             {/* Wave Canvas */}
-            <div className="fixed bottom-0 left-0 w-full translate-y-[calc(40%+50px)] z-[1]">
+            <div className="fixed bottom-0 left-0 w-full translate-y-[calc(40%+100px)] z-[1]">
                 <WaveCanvas />
             </div>
 
