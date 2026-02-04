@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { FiSearch, FiArrowRight } from "react-icons/fi";
 import { motion } from "motion/react";
 
 export function Navbar() {
+    const [isSearchFocused, setIsSearchFocused] = useState(false);
+
     return (
         <motion.nav
             className="flex items-center justify-between gap-6 mb-8"
@@ -43,25 +46,45 @@ export function Navbar() {
                 </span>
             </div>
 
-            {/* Search Box */}
-            <div
-                className="hidden md:flex items-center rounded-full overflow-visible neo-border"
-                style={{
-                    background: "#FFFFFF",
-                    width: 320,
+            {/* Search Box with Expand Animation */}
+            <motion.div
+                className="hidden md:flex items-center rounded-full overflow-visible neo-border cursor-text"
+                style={{ background: "#FFFFFF" }}
+                initial={{ width: 280 }}
+                animate={{
+                    width: isSearchFocused ? 400 : 280,
+                    boxShadow: isSearchFocused
+                        ? "6px 6px 0px 0px #1A1A1A"
+                        : "4px 4px 0px 0px #1A1A1A"
                 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25
+                }}
+                onMouseEnter={() => setIsSearchFocused(true)}
+                onMouseLeave={() => !document.activeElement?.matches('input') && setIsSearchFocused(false)}
             >
                 <div className="flex items-center w-full px-5 py-3.5">
-                    <div className="flex-shrink-0 mr-4">
+                    <motion.div
+                        className="flex-shrink-0 mr-4"
+                        animate={{
+                            scale: isSearchFocused ? 1.1 : 1,
+                            rotate: isSearchFocused ? -10 : 0
+                        }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                    >
                         <FiSearch className="w-[22px] h-[22px] text-gray-500" />
-                    </div>
+                    </motion.div>
                     <input
                         type="text"
-                        placeholder="Search tokens, pools, wallets..."
+                        placeholder="Search the Orb..."
                         className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold text-[#1A1A1A] placeholder:text-gray-500 min-w-0"
+                        onFocus={() => setIsSearchFocused(true)}
+                        onBlur={() => setIsSearchFocused(false)}
                     />
                 </div>
-            </div>
+            </motion.div>
 
             {/* Connect Wallet Button */}
             <button
