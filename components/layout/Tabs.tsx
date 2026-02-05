@@ -268,7 +268,7 @@ export function Tabs() {
       </div>
 
       {/* Right Side - Tab Navigation + Action Panel */}
-      <div className="w-full lg:w-[480px] flex flex-col gap-4">
+      <div className="w-full lg:w-120 flex flex-col gap-4">
         {/* Tab Navigation */}
         <motion.div
           className="flex justify-center"
@@ -276,9 +276,9 @@ export function Tabs() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          {/* Desktop Tab Navigation (≥ 460px) - Original Design */}
+          {/* Desktop Tab Navigation (≥ 600px) - Horizontal with Labels */}
           <div
-            className="tab-nav-desktop items-center gap-1.5 rounded-full p-2 neo-border"
+            className="tab-nav-desktop inline-flex items-center gap-1.5 rounded-full p-2 neo-border"
             style={{ background: "var(--color-bg-white)" }}
           >
             {tabs.map((tab) => (
@@ -306,7 +306,7 @@ export function Tabs() {
           </div>
 
           {/* Mobile Tab Navigation (< 600px) - Icon Only, Like ThemeToggle */}
-          <div className="tab-nav-mobile items-center justify-center gap-2 flex-row">
+          <div className="tab-nav-mobile flex items-center justify-center gap-2">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
@@ -600,9 +600,12 @@ function BridgePanel() {
             style={{ borderColor: "var(--color-gray-100)" }}
           >
             <div className="flex items-center gap-3">
-              <div 
+              <div
                 className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: "linear-gradient(to bottom right, var(--token-arb), var(--token-usdc))" }}
+                style={{
+                  background:
+                    "linear-gradient(to bottom right, var(--token-arb), var(--token-usdc))",
+                }}
               >
                 A
               </div>
