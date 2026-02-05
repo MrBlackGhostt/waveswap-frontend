@@ -278,7 +278,7 @@ export function Tabs() {
         >
           {/* Desktop Tab Navigation (≥ 600px) - Horizontal with Labels */}
           <div
-            className="tab-nav-desktop inline-flex items-center gap-1.5 rounded-full p-2 neo-border"
+            className="tab-nav-desktop hidden sm:flex items-center gap-1.5 rounded-full p-2 neo-border"
             style={{ background: "var(--color-bg-white)" }}
           >
             {tabs.map((tab) => (
@@ -306,7 +306,7 @@ export function Tabs() {
           </div>
 
           {/* Mobile Tab Navigation (< 600px) - Icon Only, Like ThemeToggle */}
-          <div className="tab-nav-mobile flex items-center justify-center gap-2">
+          <div className="tab-nav-mobile flex sm:hidden items-center justify-center gap-2">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
