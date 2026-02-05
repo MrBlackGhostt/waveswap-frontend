@@ -120,10 +120,11 @@
   /* ========================================
      WAVE CANVAS COLORS
      (Dynamic wave grid visualization)
+     Uses theme colors for automatic theme matching
      ======================================== */
-  --wave-peak: var(--color-brand-coral);
-  --wave-valley: var(--color-brand-lavender);
-  --wave-base: var(--color-text-muted);
+  --wave-peak: var(--color-brand-coral);       /* Coral peaks match brand */
+  --wave-valley: var(--color-brand-lavender);  /* Lavender valleys match brand */
+  --wave-base: var(--color-border-secondary);  /* Subtle border color as base */
 
   /* ========================================
      TOKEN BRAND COLORS
