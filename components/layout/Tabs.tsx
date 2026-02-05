@@ -806,7 +806,7 @@ function StakePanel() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
                   style={{
-                    background: `linear-gradient(135deg, ${pool.color}, ${pool.color}dd)`,
+                    background: pool.color,
                   }}
                 >
                   {pool.symbol}
@@ -948,8 +948,11 @@ function HistoryPanel() {
           {transactions.map((tx, index) => (
             <motion.div
               key={index}
-              className="w-full flex items-center justify-between p-4 rounded-xl transition-all"
-              style={{ background: "var(--color-bg-cream-mid)" }}
+              className="w-full flex items-center justify-between p-4 rounded-2xl transition-all"
+              style={{ 
+                background: "var(--color-bg-cream-mid)",
+                border: "1px solid var(--color-border-secondary)"
+              }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
