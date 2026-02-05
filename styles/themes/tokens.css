@@ -29,6 +29,7 @@
   --color-text-primary: #1A1A1A;
   --color-text-secondary: rgba(26, 26, 26, 0.8);
   --color-text-muted: rgba(26, 26, 26, 0.6);
+  --color-text-placeholder: rgba(26, 26, 26, 0.4);
 
   /* Borders */
   --color-border-primary: #1A1A1A;

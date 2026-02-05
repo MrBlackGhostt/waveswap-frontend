@@ -1,5 +1,5 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 /* Design Tokens - Single Source of Truth */
 @import "../styles/themes/tokens.css";
@@ -43,8 +43,8 @@
   --color-coral-light: var(--coral-light);
   --color-lavender: var(--lavender);
   --color-lavender-dark: var(--lavender-dark);
-  --font-outfit: 'Outfit', sans-serif;
-  --font-rubik: 'Rubik', sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-rubik: "Rubik", sans-serif;
 }
 
 body {
@@ -55,14 +55,17 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color var(--transition-normal), color var(--transition-normal);
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal);
 }
 
 /* Smooth theme transitions for all elements */
 * {
-  transition: background-color var(--transition-normal), 
-              color var(--transition-normal), 
-              border-color var(--transition-normal);
+  transition:
+    background-color var(--transition-normal),
+    color var(--transition-normal),
+    border-color var(--transition-normal);
 }
 
 /* Font utility classes */
@@ -72,6 +75,12 @@ body {
 
 .font-rubik {
   font-family: var(--font-family-body);
+}
+
+/* Placeholder utility */
+.placeholder-text-placeholder::placeholder {
+  color: var(--color-text-placeholder);
+  opacity: 1;
 }
 
 /* Neo-brutalist utilities */
@@ -119,7 +128,7 @@ body {
 }
 
 .pulse-dot::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
@@ -141,10 +150,15 @@ body {
 
 /* Shimmer effect for buttons */
 .shimmer::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
   transform: translateX(-100%);
   animation: shimmer 2s infinite;
 }
@@ -221,6 +235,16 @@ body {
 
 .animate-card-slide-in {
   animation: cardSlideIn 0.6s ease-out both;
+}
+
+/* Input placeholder styling */
+input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+input:focus::placeholder {
+  opacity: 0.4;
 }
 
 /* Tab Navigation Responsive */

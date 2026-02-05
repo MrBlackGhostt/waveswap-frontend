@@ -92,11 +92,14 @@ export function Navbar() {
               style={{ color: "var(--color-gray-500)" }}
             />
           </motion.div>
+
           <input
             type="text"
             placeholder="Search the Orb..."
-            className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold min-w-0"
-            style={{ color: "var(--color-text-primary)" }}
+            className="flex-1 bg-transparent outline-none font-rubik text-base font-semibold min-w-0 placeholder-text-placeholder"
+            style={{
+              color: "var(--color-text-primary)",
+            }}
             onFocus={() => setIsSearchFocused(true)}
             onBlur={() => setIsSearchFocused(false)}
           />

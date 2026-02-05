@@ -16,6 +16,7 @@
   --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1aa;
   --color-text-muted: #71717a;
+  --color-text-placeholder: rgba(161, 161, 170, 0.5);
 
   /* Borders */
   --color-border-primary: #3b4d75;

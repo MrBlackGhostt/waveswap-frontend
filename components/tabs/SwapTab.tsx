@@ -159,7 +159,7 @@ export function SwapTab() {
           style={{ background: "var(--color-bg-cream-mid)" }}
         >
           <button
-            className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-full font-medium text-xs sm:text-sm"
+            className="px-2  py-1.5 sm:py-2 rounded-full font-medium text-xs sm:text-sm"
             style={{
               background: "var(--color-success)",
               color: "var(--color-bg-cream)",
@@ -168,13 +168,13 @@ export function SwapTab() {
             Market
           </button>
           <button
-            className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-full transition-colors text-xs sm:text-sm"
+            className="px-2  py-1.5 sm:py-2 rounded-full transition-colors text-xs sm:text-sm"
             style={{ color: "var(--color-text-muted)" }}
           >
             Limit
           </button>
           <button
-            className="px-2 sm:px-4 py-1.5 sm:py-2 rounded-full transition-colors text-xs sm:text-sm"
+            className="px-2  py-1.5 sm:py-2 rounded-full transition-colors text-xs sm:text-sm"
             style={{ color: "var(--color-text-muted)" }}
           >
             Recurring
